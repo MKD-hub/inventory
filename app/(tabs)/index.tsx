@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import ItemContainer from "../../components/ItemContainer"
 import TypoStyles from "../../constants/Typo.ts" 
-export default function HomeScreen() {
+
+const HomeScreen = () => {
   return (
     <View style={styles.titleContainer}>
       <ItemContainer 
@@ -39,3 +40,5 @@ const styles = StyleSheet.create({
     justifySelf: 'center'
   },
 });
+
+export default HomeScreen;

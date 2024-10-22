@@ -6,13 +6,11 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import GlobalProvider from "../context/globalProvider";
-import Toast from 'react-native-toast-message';
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme(); 
+  const colorScheme = 'light';
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -35,7 +33,6 @@ export default function RootLayout() {
           <Stack.Screen name="+not-found" />
         </Stack>
       </ThemeProvider>
-      <Toast />
     </GlobalProvider>
   );
 }

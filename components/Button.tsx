@@ -22,7 +22,7 @@ const Button = ({icon, title, onClick, bgColor}: ButtonProps) => {
   });
 
   return (
-    <TouchableOpacity style={styles.button} onPress = { onClick }>
+    <TouchableOpacity style={styles.button} onPress = {() => onClick() }>
       {icon}
       <Text>
         {title}

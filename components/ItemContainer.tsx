@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
-import TypoStyles from "../constants/Typo.ts";
+import TypoStyles from "../constants/Typo";
+import { Colors } from "@/constants/Colors";
 import { Trash, RefreshCw, Coins } from 'lucide-react-native';
 import Button from './Button';
-
+import Toast from 'react-native-toast-message';
 interface ItemContainerProps {
   name: string;
   type: string;
@@ -13,7 +14,7 @@ interface ItemContainerProps {
 const ItemContainer = ({ name, type, price, quantity } : ItemContainerProps ) => {
 
   return (
-   <View style={styles.container}>
+   <View style={[styles.container, Colors.cardLight]}>
 
       <View style={styles.horizontalContainer}>
         <Text style={TypoStyles.bold}>
@@ -21,9 +22,12 @@ const ItemContainer = ({ name, type, price, quantity } : ItemContainerProps ) =>
         </Text>
 
         <View style = {styles.buttonsContainer}>
+          {/* TODO: make buttons with just the icons. */}
+           
           <Button
             icon = {<Trash color = {'#fff'} size = {16} />}
             bgColor = {'#c1121f'}
+            onClick = { () => Toast.show({ type: 'success', text1: 'text' }) }
           />
           <Button
             icon = {<RefreshCw color = {'#fff'} size = {16} />}
@@ -61,7 +65,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginHorizontal: 8,
     padding: 8,
-    gap: 4
+    gap: 4,
+    borderRadius: 8
   },
   
   horizontalContainer: {
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 2,
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'flex-end'
   }
 
  
